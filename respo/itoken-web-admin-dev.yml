@@ -18,6 +18,11 @@ server:
   port: 8601
 
 
+feign:
+  hystrix:
+    enabled: true
+
+
 eureka:
   client:
     serviceUrl:
