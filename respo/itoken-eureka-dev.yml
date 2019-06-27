@@ -1,0 +1,31 @@
+spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:8084
+  zipkin:
+    base-url: http://localhost:9411
+  application:
+    name: itoken-eureka
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false   #服务端模式   集群模式为true
+    fetchRegistry: false        #服务端模式    集群模式为true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        # 注意：此处在视频里是 include: ["health", "info"] 但已无效了，请修改
+        include: health,info

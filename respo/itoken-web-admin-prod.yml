@@ -1,0 +1,35 @@
+spring:
+  boot:
+    admin:
+      client:
+        url: http://192.168.139.61:8084
+  zipkin:
+    base-url: http://192.168.139.61:9411
+  application:
+    name: itoken-web-admin
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+
+server:
+  port: 8601
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        # 注意：此处在视频里是 include: ["health", "info"] 但已无效了，请修改
+        include: health,info
